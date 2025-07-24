@@ -1,25 +1,26 @@
 package week04;
 
 import java.time.LocalDate;
+
 import java.time.DayOfWeek;
  
 
 public class week04CodingProject {
 	
 /*********************************************************Enter methods below*****************************************************/		
-//Method: subtract first and last element in array. //What is happening when method is called? ages[] array as example
-  public static int subtractFirstAndLastElementInArray(int[] array) {// return type in, parameter array. when method is called ages[] array is passed into parameter
-	int firstElementInArray = 0; // Created variable to hold first element
-	int lastElementInArray = 0;   // Created variable to hold last element             
-	for (int i = 0; i < array.length; i++) {// for loop - interate by 1 if i is less than length of array length (8 objects)
-	      if (i == 0) {                      // if i equals position 0 then change variable firstElementinArray to that value
-	      firstElementInArray = array[i]; // ages[0]: This happens on first iteraton
-		}
-	      if (i == array.length -1) { // if i equals last position (array length 8 - 1 = position 7)  then change variable lastElementinArray to that value
-	      lastElementInArray = array[i]; // ages[7]: This happens on last iteration
-	        }	     
-	     }
-	      return lastElementInArray - firstElementInArray; // when methods is called return the value of lastElementInArray minus firstElementInArray
+ //Method: subtract first and last element in array. //What is happening when method is called? ages[] array as example
+	public static int subtractFirstAndLastElementInArray(int[] array) {// return type in, parameter array. when method is called ages[] array is passed into parameter
+		 int firstElementInArray = 0; // Created variable to hold first element
+		 int lastElementInArray = 0;   // Created variable to hold last element             
+		   for (int i = 0; i < array.length; i++) {// for loop - interate by 1 if i is less than length of array length (8 objects)
+			    if (i == 0) {                      // if i equals position 0 then change variable firstElementinArray to that value
+			    	firstElementInArray = array[i]; // ages[0]: This happens on first iteraton
+			    }
+			    if (i == array.length -1) { // if i equals last position (array length 8 - 1 = position 7)  then change variable lastElementinArray to that value
+			    	lastElementInArray = array[i]; // ages[7]: This happens on last iteration
+			    }	     
+		   }
+		   return lastElementInArray - firstElementInArray; // when methods is called return the value of lastElementInArray minus firstElementInArray
 	 }
 
 //Method: Calculates and returns the sum of all elements in an int array:
@@ -52,13 +53,18 @@ public class week04CodingProject {
 	
  /*7. Write a method that takes a String, word, and an int, n, as arguments and returns the word concatenated 
     to itself n number of times. (i.e. if I pass in “Hello” and 3, I expect the method to return “HelloHelloHello”).*/ 
+	
+    //every time a string is modified java creates a new String object, which is inefficient
+    //a String is immutable and StringBuilder is mutable which allows modification
+    //StringBuilder can not modify an existing String variable.
+    //Once Stringbuilder is converted to string it becomes immutable. method toString() converst Stringbuilder to String
     
-	 public static String stringConcatItself (String str, int n) {//return type is String. parameters str and n
-		    String strTimesN = "";        // created string variable strTimesN to hold the value of String str
-		    for(int i = 0; i < n; i++) {  // for loop to iterate by 1. number variable value will be passed to n parameter for the test condition
-		    	strTimesN += str;       // every iteration will add the string from str to wordTimesN using the +=
-		    }                            
-		    return strTimesN;          // when method is called the return strTimesN 
+	 public static String stringConcatItself (String str, int num) {//Method return type is String. Parameters String and Int
+		 StringBuilder strTimesN = new StringBuilder();//Using StringBuilder to modify strTimesN additional num of times. int variable will be passed into (int num) to parameters to say how many times to concat string
+		 for(int i = 0; i < num; i++) {// for loop to iterate by 1 if i is less than num variable being passed in.
+			 strTimesN.append(str); // append() method to add String str to strTimesN and additional modifications will be added to the end. 
+		 }
+		 return strTimesN.toString();
 	 }
 	 
 	 
@@ -114,15 +120,21 @@ public class week04CodingProject {
  }
  
  
- /*13 method*/
+ /*13. Create your own method that solves a problem - Do I have class today?*/
  public static void isItClassDay (DayOfWeek day) {///return type void because result is printing to console. Parameter is data type DayOfWeek 
-	   if(day == DayOfWeek.THURSDAY) {//checking if day being passed in from parameter is thursday. DayOfWeek is an enumeration with 7 constants for days of the week. 
-		   System.out.println("13.) Today is " + day + ". You have class today."); // if statement prints this if today is thursday
+	   if(day == DayOfWeek.THURSDAY) {//checking if day being passed in from parameter is THURSDAY. DayOfWeek is an enumeration with 7 constants for days of the week. 
+		   System.out.println("13.) Today is " + day + ". You have class today."); // if statement prints this if today is THURSDAY
 	   } else {
 		   System.out.println("13.) Today is " + day + ". You don't have class today.");
 	   }
+		//What is an enumeration(Enum) - 
+		//a pre-built class in java's libraries
+		//need to import to use (e.g. import java.time.DayOfWeek;)
+		//has a fixed set of constants(values) (e.g. DayOfWeek constants =  MONDAY, TUESDAY, WEDNESDAY etc...) 
+		//constants can be referenced from the Enum (e.g. DayOfWeek.THURSDAY)
+	    //case sensitive
  }
-  	
+
 	 
  
 /*********************************************************Enter methods above*****************************************************/	
@@ -263,9 +275,9 @@ System.out.println("1b. )ages2 array: ");
  (the full name should be the first and the last name as a String separated by a space).*/
 		 
 	String firstName = "Caesar";
-	String lastName = "Littles";
+	String lastName = "Little";
 	String fullName = concatFirstLastName(firstName, lastName) ;
-	System.out.println("8.) take two strings and return fullName: " +fullName);
+	System.out.println("8.) take two strings and return fullName: " + fullName);
 		 
 	 
 /* 9. Write a method that takes an array of int and returns true if the sum of all the ints in the array is greater than 100.*/
@@ -307,11 +319,11 @@ System.out.println("1b. )ages2 array: ");
           
        //Method to check if today is Thursday and print messaging saying if I have class today or not.
        //Imported LocalDate and DayOfWeek classes
-       LocalDate today = LocalDate.now();                   // uses LocalDate class data type and .now() method to get todays date
-       DayOfWeek dayOfWeek = today.getDayOfWeek();          // uses DayOfWeek data type and method .getDayOfWeek() from today variable
+       LocalDate today = LocalDate.now();                   // uses LocalDate class data type and .now() method to get today's date
+       DayOfWeek dayOfWeek = today.getDayOfWeek();          // uses DayOfWeek data type and method .getDayOfWeek() from today variable to get the day name
        isItClassDay(dayOfWeek);// Call method and passing in dayOfWeek variable to method
    
-   			
+ 
 	}
 
-}
+
