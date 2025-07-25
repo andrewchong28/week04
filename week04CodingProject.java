@@ -1,20 +1,21 @@
 package week04;
 
+import java.util.Arrays; // Arrays.toString(ages)); using method Array.ToString() to take an array and return a readable string to print the array elements
 import java.time.LocalDate;
-
 import java.time.DayOfWeek;
  
 
 public class week04CodingProject {
 	
-/*********************************************************Enter methods below*****************************************************/		
+/*********************************************************Enter methods below*****************************************************/	
+ //1. (a & b)
  //Method: subtract first and last element in array. //What is happening when method is called? ages[] array as example
-	public static int subtractFirstAndLastElementInArray(int[] array) {// return type in, parameter array. when method is called ages[] array is passed into parameter
+	public static int subtractFirstAndLastElementInArray(int[] array) {// return type in, parameter is an array. when method is called ages[] array is passed into parameter
 		 int firstElementInArray = 0; // Created variable to hold first element
 		 int lastElementInArray = 0;   // Created variable to hold last element             
-		   for (int i = 0; i < array.length; i++) {// for loop - interate by 1 if i is less than length of array length (8 objects)
+		   for (int i = 0; i < array.length; i++) {// for loop - iterate by 1 if i is less than length of array length (8 objects)
 			    if (i == 0) {                      // if i equals position 0 then change variable firstElementinArray to that value
-			    	firstElementInArray = array[i]; // ages[0]: This happens on first iteraton
+			    	firstElementInArray = array[i]; // ages[0]: This happens on first iteration
 			    }
 			    if (i == array.length -1) { // if i equals last position (array length 8 - 1 = position 7)  then change variable lastElementinArray to that value
 			    	lastElementInArray = array[i]; // ages[7]: This happens on last iteration
@@ -64,7 +65,7 @@ public class week04CodingProject {
 		 for(int i = 0; i < num; i++) {// for loop to iterate by 1 if i is less than num variable being passed in.
 			 strTimesN.append(str); // append() method to add String str to strTimesN and additional modifications will be added to the end. 
 		 }
-		 return strTimesN.toString();
+		 return strTimesN.toString();// Returns the concatenated word and toString() method converts strTimesN into a string(now immutable)
 	 }
 	 
 	 
@@ -78,7 +79,7 @@ public class week04CodingProject {
      public static boolean ifSumOfArrayGreaterThan100 (int[] n) {//method return type boolean, parameter int array. when method is called array from main gets passed in 
     	 int sumN = 0; //variable to store the sum of elements of array passed in 
     	 for (int numbers : n) {//enhanced for loop to iterate through elements in array( for numbers in n[] array)
-    		  sumN += numbers;  // on each iteration add current number to total(sumN)
+    		  sumN += numbers;  // on each iteration adds current number to total(sumN)
     	 }
     	 if (sumN > 100) {      //if statement returns true if total is greater than 100
     		 return true;
@@ -116,7 +117,7 @@ public class week04CodingProject {
  true if it is hot outside and if moneyInPocket is greater than 10.50.*/
  
  public static boolean willBuyDrink (boolean a, double b) { //return type boolean, two parameters of boolean and double
-	  return  a == true && b > 10.50; // returns a boolean if both "a" is true and b is greater than 10.50	  
+	  return  a == true && b > 10.50; // returns a boolean:true if both "a" is true and b is greater than 10.50	  
  }
  
  
@@ -158,10 +159,12 @@ iii. Show that using the index values for the elements is dynamic (works for arr
 c. Use a loop to iterate through the array and calculate the average age. Print the result to the console.*/
 		
 /*-------------------------ages array----------------------------*/
-System.out.println("1a. )ages array: ");
+System.out.println("1a.) ages array: ");
 		   
 //1. Create an array of int called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93.
 	int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+	
+	System.out.println("ages array elements: " + Arrays.toString(ages));// using method Array.ToString() to take an array and return a readable string to print the array elements
 		   
 	// loop to print first and last element
 	for (int i = 0; i < ages.length; i++) {// for loop - interate by 1 if i is less than length of array (8 objects)
@@ -175,16 +178,20 @@ System.out.println("1a. )ages array: ");
 			
 			   
 	//a. Programmatically subtract the value of the first element in the array from the value in the last element of the array
-	//iii. Show that using the index values for the elements is dynamic - Refer to method subtractFirstAndLastElementinArray
+	//iii. Show that using the index values for the elements is dynamic 
+	
 	//Method: using method subtractFirstAndLastElementinArray
 	System.out.println("    last element - first element = " + subtractFirstAndLastElementInArray(ages));
 	System.out.println("    elements in array: " + ages.length);
+	
 	                 	 
 /*-------------------------ages2 array----------------------------*/
-System.out.println("1b. )ages2 array: ");
+System.out.println("1b.) ages2 array: ");
 			   
 // b. Create a new array of int called ages2 with 9 elements
 	int[] ages2 ={15, 723, 4, 250, 98, 45, 0, 333, 5000};
+	
+	System.out.println("ages2 array elements: " + Arrays.toString(ages2));// using method Array.ToString() to take an array and return a readable string to print the array elements
 			   
 	// loop to print first and last element	      
 	for (int i = 0; i < ages2.length; i++) {// for loop - interate by 1 if i is less than length of array(9 elements)
@@ -203,6 +210,7 @@ System.out.println("1b. )ages2 array: ");
 	//Method: using method subtractFirstAndLastElementinArray   
 	System.out.println("    last element - first element = " + subtractFirstAndLastElementInArray(ages2));	   
 	System.out.println("    elements in array: " + ages2.length);
+    
 		  
 /*2. Create an array of String called names that contains the following values: “Sam”, “Tommy”, “Tim”, “Sally”, “Buck”, “Bob”. */
         String[] names = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob"};
@@ -216,7 +224,7 @@ System.out.println("1b. )ages2 array: ");
             nameLengthTotal += name.length();// on each iteration += adds the length of each name to the nameLenghtTotal variable  
         }
 
-        System.out.println("2a.)average number of letters per name: "+ nameLengthTotal + "/" + names.length + " = " + nameLengthTotal / names.length);
+        System.out.println("2a.)average number of letters per name: " + nameLengthTotal + "/" + names.length + " = " + nameLengthTotal / names.length);
 				  
        //b. Use a loop to iterate through the array again and concatenate all the
         String concatNames = " ";
@@ -227,7 +235,7 @@ System.out.println("1b. )ages2 array: ");
          
          
 /*3. How do you access the last element of any array?
-	      create a for loop for (int i = 0; i < ages2.length; i++) to interate through the array. In the body of array use  if (i == ages2.length -1) to say if i equals length of array -1.
+	      create a for loop for (int i = 0; i < ages2.length; i++) to interate through the array. In the body of array use  if (i == ages.length -1) to say if i equals length of array -1.
 	      if length of array is 9 then - 1 would be last position at 8 of array.*/
          
 /* 4. How do you access the first element of any array?
@@ -265,14 +273,14 @@ System.out.println("1b. )ages2 array: ");
 	System.out.println("6.) Sum of all elements in nameLengths array: " + nameLengthSum);
 				
 /*7. Write a method that takes a String, word, and an int, n, as arguments and returns the word concatenated 
-	     to itself n number of times. (i.e. if I pass in “Hello” and 3, I expect the method to return “HelloHelloHello”).*/
+	 to itself n number of times. (i.e. if I pass in “Hello” and 3, I expect the method to return “HelloHelloHello”).*/
 		  
 	 String word = "pizza";
 	 int number = 3;
 	 System.out.println("7.) string concatenated to itself n number of times: " + stringConcatItself(word,number));
 			 
 /*8. Write a method that takes two Strings, firstName and lastName, and returns a full name
- (the full name should be the first and the last name as a String separated by a space).*/
+     (the full name should be the first and the last name as a String separated by a space).*/
 		 
 	String firstName = "Caesar";
 	String lastName = "Little";
@@ -310,7 +318,7 @@ System.out.println("1b. )ages2 array: ");
        true if it is hot outside and if moneyInPocket is greater than 10.50.*/
       // created method willBuyDrink() to check if boolean is true and double variable is greater than 10.50
       boolean isHotOutside = true;// variables to be passed to method parameter
-      double moneyInPocket = 15.00;// variables to be passed to method parameter
+      double moneyInPocket = 7.50;// variables to be passed to method parameter
            
       System.out.println("12.) " + willBuyDrink(isHotOutside,moneyInPocket));
                   
@@ -326,4 +334,4 @@ System.out.println("1b. )ages2 array: ");
  
 	}
 
-
+}
