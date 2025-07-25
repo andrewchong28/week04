@@ -59,7 +59,7 @@ public class week04CodingProject {
     //every time a string is modified java creates a new String object, which is inefficient
     //a String is immutable and StringBuilder is mutable which allows modification
     //StringBuilder can not modify an existing String variable.
-    //Once Stringbuilder is converted to string it becomes immutable. method toString() converst Stringbuilder to String
+    //Once Stringbuilder is converted to string it becomes immutable. method toString() convert Stringbuilder to String
     
 	 public static String stringConcatItself (String str, int num) {//Method return type is String. Parameters String and Int
 		 StringBuilder strTimesN = new StringBuilder();//Using StringBuilder to modify strTimesN additional num of times. int variable will be passed into (int num) to parameters to say how many times to concat string
@@ -236,11 +236,11 @@ System.out.println("1b.) ages2 array: ");
          
          
 /*3. How do you access the last element of any array?
-	      create a for loop for (int i = 0; i < ages2.length; i++) to interate through the array. In the body of array use  if (i == ages.length -1) to say if i equals length of array -1.
+	      create a for loop for (int i = 0; i < ages2.length; i++) to iterate through the array. In the body of array use  if (i == ages.length -1) to say if i equals length of array -1.
 	      if length of array is 9 then - 1 would be last position at 8 of array.*/
          
 /* 4. How do you access the first element of any array?
-	 	  create a for loop for (int i = 0; i < ages2.length; i++) to interate through the array. In the body of array use  if (i == 0) 
+	 	  create a for loop for (int i = 0; i < ages2.length; i++) to iterate through the array. In the body of array use  if (i == 0) 
 	      to say if i equals 0 then position 0 of array.*/
            
 	 
@@ -336,3 +336,4 @@ System.out.println("1b.) ages2 array: ");
 	}
 
 }
+ 
