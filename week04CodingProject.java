@@ -1,6 +1,7 @@
-package week04;
+package project;
 
 import java.util.Arrays; // Arrays.toString(ages)); using method Array.ToString() to take an array and return a readable string to print the array elements
+
 import java.time.LocalDate;
 import java.time.DayOfWeek;
  
